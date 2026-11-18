@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zayyina — modest fashion untuk tampil anggun, nyaman, dan percaya diri.">
+  <title>Zayyina | Beauty in Modesty</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --nurjaqia-rose: #b77e83;
+      --nurjaqia-rose-dark: #80565c;
+      --nurjaqia-pink: #f6e6e5;
+      --nurjaqia-cream: #fbf8f4;
+      --nurjaqia-ink: #37302f;
+      --nurjaqia-muted: #827775;
+      --nurjaqia-white: #ffffff;
+      --nurjaqia-line: #eadbd8;
+      --nurjaqia-shadow: 0 14px 35px rgba(80, 50, 50, .09);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--nurjaqia-ink);
+      background: var(--nurjaqia-cream);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, textarea { font: inherit; }
+
+    .nurjaqia-container { width: min(1160px, 90%); margin: 0 auto; }
+    .nurjaqia-section { padding: 88px 0; }
+    .nurjaqia-section-heading { text-align: center; max-width: 650px; margin: 0 auto 42px; }
+    .nurjaqia-eyebrow {
+      display: inline-block; color: var(--nurjaqia-rose-dark); font-size: .78rem;
+      font-weight: 700; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .nurjaqia-section-heading h2 {
+      font-family: "Playfair Display", serif; font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15; font-weight: 600; margin-bottom: 13px;
+    }
+    .nurjaqia-section-heading p { color: var(--nurjaqia-muted); }
+
+    /* Header */
+    #nurjaqia-header {
+      position: sticky; top: 0; z-index: 1000; background: rgba(251,248,244,.96);
+      backdrop-filter: blur(12px); border-bottom: 1px solid rgba(234,219,216,.8);
+    }
+    .nurjaqia-header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nurjaqia-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .nurjaqia-brand img { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; }
+    .nurjaqia-brand span { font-family: "Playfair Display", serif; color: var(--nurjaqia-rose-dark); font-size: 1.55rem; }
+    .nurjaqia-nav { display: flex; align-items: center; gap: 27px; }
+    .nurjaqia-nav a { font-size: .9rem; font-weight: 600; color: #5c5050; transition: color .2s; }
+    .nurjaqia-nav a:hover { color: var(--nurjaqia-rose); }
+    .nurjaqia-header-cta {
+      display: inline-flex; align-items: center; gap: 9px; padding: 11px 18px;
+      border-radius: 30px; background: var(--nurjaqia-rose-dark); color: white;
+      font-size: .88rem; font-weight: 700; white-space: nowrap;
+    }
+    #nurjaqia-menu-toggle { display: none; }
+    .nurjaqia-menu-button { display: none; font-size: 1.35rem; cursor: pointer; color: var(--nurjaqia-rose-dark); }
+
+    /* Hero */
+    #nurjaqia-beranda { padding: 48px 0 78px; overflow: hidden; }
+    .nurjaqia-hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 58px; }
+    .nurjaqia-hero-copy { padding: 20px 0; }
+    .nurjaqia-hero-copy .nurjaqia-eyebrow { background: var(--nurjaqia-pink); padding: 8px 14px; border-radius: 30px; }
+    .nurjaqia-hero-copy h1 {
+      font-family: "Playfair Display", serif; font-size: clamp(2.8rem, 5.3vw, 5rem);
+      line-height: 1.06; font-weight: 600; margin: 16px 0 20px;
+    }
+    .nurjaqia-hero-copy h1 span { color: var(--nurjaqia-rose); font-style: italic; }
+    .nurjaqia-hero-copy p { color: var(--nurjaqia-muted); max-width: 510px; font-size: 1.03rem; margin-bottom: 28px; }
+    .nurjaqia-hero-actions { display: flex; flex-wrap: wrap; gap: 13px; }
+    .nurjaqia-button {
+      display: inline-flex; justify-content: center; align-items: center; gap: 9px;
+      padding: 13px 23px; border-radius: 30px; border: 1px solid var(--nurjaqia-rose-dark);
+      background: var(--nurjaqia-rose-dark); color: white; font-weight: 700; transition: .2s;
+    }
+    .nurjaqia-button:hover { transform: translateY(-2px); box-shadow: var(--nurjaqia-shadow); }
+    .nurjaqia-button-outline { background: transparent; color: var(--nurjaqia-rose-dark); }
+    .nurjaqia-hero-photo { position: relative; max-width: 500px; justify-self: end; }
+    .nurjaqia-hero-photo::before {
+      content: ""; position: absolute; width: 78%; height: 88%; right: -22px; top: 24px;
+      border: 1px solid #d9b7b7; border-radius: 48% 48% 18px 18px; z-index: 0;
+    }
+    .nurjaqia-hero-photo img {
+      position: relative; z-index: 1; width: 100%; height: 570px; object-fit: cover;
+      object-position: center 30%; border-radius: 48% 48% 18px 18px; box-shadow: var(--nurjaqia-shadow);
+    }
+    .nurjaqia-hero-note {
+      position: absolute; z-index: 2; left: -42px; bottom: 34px; background: white;
+      padding: 16px 20px; border-radius: 14px; box-shadow: var(--nurjaqia-shadow);
+      color: var(--nurjaqia-rose-dark); font-family: "Playfair Display", serif; font-size: 1.15rem;
+    }
+
+    /* Brand values */
+    .nurjaqia-values { background: var(--nurjaqia-pink); padding: 25px 0; }
+    .nurjaqia-values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .nurjaqia-value { display: flex; justify-content: center; align-items: center; gap: 12px; color: var(--nurjaqia-rose-dark); }
+    .nurjaqia-value i { font-size: 1.35rem; }
+    .nurjaqia-value strong { display: block; font-size: .95rem; }
+    .nurjaqia-value span { display: block; color: #8b7775; font-size: .8rem; }
+
+     /* About */
+    #nurjaqia-tentang { background: white; }
+    .nurjaqia-about-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 55px; }
+    .nurjaqia-about-image img { width: 100%; height: 400px; object-fit: cover; border-radius: 18px; box-shadow: var(--nurjaqia-shadow); }
+    .nurjaqia-about-copy h2 { font: 600 clamp(2rem,4vw,3rem)/1.15 "Playfair Display",serif; margin-bottom: 18px; }
+    .nurjaqia-about-copy h2 span { color: var(--nurjaqia-rose); }
+    .nurjaqia-about-copy p { color: var(--nurjaqia-muted); margin-bottom: 14px; } 
+    
+    /* Products */
+    .nurjaqia-product-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 25px; }
+    .nurjaqia-product-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--nurjaqia-shadow); transition: transform .25s; }
+    .nurjaqia-product-card:hover { transform: translateY(-6px); }
+    .nurjaqia-product-image { position: relative; overflow: hidden; background: var(--nurjaqia-pink); }
+    .nurjaqia-product-image img { width: 100%; height: 340px; object-fit: cover; transition: transform .35s; }
+    .nurjaqia-product-card:hover .nurjaqia-product-image img { transform: scale(1.04); }
+    .nurjaqia-product-tag { position: absolute; top: 15px; left: 15px; background: white; color: var(--nurjaqia-rose-dark); border-radius: 30px; padding: 6px 12px; font-size: .72rem; font-weight: 700; }
+    .nurjaqia-product-info { padding: 20px; }
+    .nurjaqia-product-info h3 { font: 600 1.35rem "Playfair Display",serif; margin-bottom: 5px; }
+    .nurjaqia-product-info p { color: var(--nurjaqia-muted); font-size: .9rem; min-height: 48px; }
+    .nurjaqia-product-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 17px; }
+    .nurjaqia-product-bottom span { color: var(--nurjaqia-rose-dark); font-weight: 700; font-size: .88rem; }
+    .nurjaqia-small-link { font-size: .85rem; font-weight: 700; color: var(--nurjaqia-rose-dark); }
+
+    /* Promo */
+    #nurjaqia-promo { background: #ead6d4; }
+    .nurjaqia-promo-box { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 25px; }
+    .nurjaqia-promo-box h2 { font: 600 clamp(2rem,4vw,3.1rem)/1.15 "Playfair Display",serif; color: #68474b; }
+    .nurjaqia-promo-box p { color: #765e5e; margin-top: 10px; }
+    .nurjaqia-promo-box .nurjaqia-button { background: #68474b; border-color: #68474b; }
+
+    /* Gallery */
+    #nurjaqia-galeri { background: white; }
+    .nurjaqia-gallery-grid { display: grid; grid-template-columns: 1.1fr .9fr .9fr; grid-template-rows: 230px 230px; gap: 16px; }
+    .nurjaqia-gallery-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
+    .nurjaqia-gallery-grid img:first-child { grid-row: span 2; }
+
+    /* Reviews */
+    .nurjaqia-review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .nurjaqia-review-card { background: white; padding: 26px; border-radius: 16px; box-shadow: var(--nurjaqia-shadow); }
+    .nurjaqia-stars { color: #c69a62; letter-spacing: 3px; margin-bottom: 13px; }
+    .nurjaqia-review-card p { color: var(--nurjaqia-muted); font-size: .94rem; margin-bottom: 18px; }
+    .nurjaqia-review-card strong { color: var(--nurjaqia-rose-dark); }
+
+    /* Contact */
+    #nurjaqia-kontak { background: white; }
+    .nurjaqia-contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 45px; }
+    .nurjaqia-contact-copy h2 { font: 600 2.5rem/1.15 "Playfair Display",serif; margin-bottom: 15px; }
+    .nurjaqia-contact-copy p { color: var(--nurjaqia-muted); margin-bottom: 20px; }
+    .nurjaqia-contact-detail { display: flex; align-items: center; gap: 12px; margin: 13px 0; color: var(--nurjaqia-rose-dark); }
+    .nurjaqia-contact-form { display: grid; gap: 13px; }
+    .nurjaqia-contact-form input, .nurjaqia-contact-form textarea {
+      width: 100%; border: 1px solid var(--nurjaqia-line); background: var(--nurjaqia-cream);
+      border-radius: 10px; padding: 14px 15px; outline: none;
+    }
+    .nurjaqia-contact-form input:focus, .nurjaqia-contact-form textarea:focus { border-color: var(--nurjaqia-rose); }
+    .nurjaqia-contact-form textarea { min-height: 125px; resize: vertical; }
+    .nurjaqia-contact-form button { cursor: pointer; justify-self: start; }
+
+    /* Footer */
+    #nurjaqia-footer { background: #392f30; color: #f8eeeb; padding: 35px 0; }
+    .nurjaqia-footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .nurjaqia-footer-brand { font: 600 1.7rem "Playfair Display",serif; }
+    .nurjaqia-footer-inner p { color: #d1bfbd; font-size: .85rem; }
+    .nurjaqia-socials { display: flex; gap: 15px; font-size: 1.1rem; }
+
+    @media (max-width: 980px) {
+      .nurjaqia-nav { gap: 15px; }
+      .nurjaqia-header-cta { display: none; }
+      .nurjaqia-hero-grid { gap: 35px; }
+      .nurjaqia-hero-photo img { height: 500px; }
+    }
+    @media (max-width: 760px) {
+      .nurjaqia-header-inner { min-height: 72px; flex-wrap: wrap; }
+      .nurjaqia-menu-button { display: block; order: 3; }
+      .nurjaqia-brand { margin-right: auto; }
+      .nurjaqia-brand img { width: 48px; height: 48px; }
+      .nurjaqia-nav {
+        display: none; order: 4; width: 100%; flex-direction: column; align-items: stretch;
+        gap: 0; padding: 8px 0 17px;
+      }
+      #nurjaqia-menu-toggle:checked ~ .nurjaqia-nav { display: flex; }
+      .nurjaqia-nav a { padding: 10px 4px; border-top: 1px solid var(--nurjaqia-line); }
+      .nurjaqia-hero-grid, .nurjaqia-about-grid, .nurjaqia-contact-grid { grid-template-columns: 1fr; }
+      .nurjaqia-hero-grid { gap: 30px; }
+      .nurjaqia-hero-copy { text-align: center; }
+      .nurjaqia-hero-copy p { margin-left: auto; margin-right: auto; }
+      .nurjaqia-hero-actions { justify-content: center; }
+      .nurjaqia-hero-photo { justify-self: center; width: min(440px, 90%); }
+      .nurjaqia-hero-photo img { height: 490px; }
+      .nurjaqia-hero-note { left: -15px; }
+      .nurjaqia-values-grid { grid-template-columns: 1fr; gap: 17px; }
+      .nurjaqia-value { justify-content: flex-start; max-width: 260px; margin: auto; width: 100%; }
+      .nurjaqia-product-grid, .nurjaqia-review-grid { grid-template-columns: 1fr 1fr; }
+      .nurjaqia-gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 250px 180px; }
+      .nurjaqia-gallery-grid img:first-child { grid-row: span 2; }
+      .nurjaqia-promo-box { grid-template-columns: 1fr; text-align: center; }
+      .nurjaqia-promo-box .nurjaqia-button { justify-self: center; }
+    }
+    @media (max-width: 520px) {
+      .nurjaqia-section { padding: 65px 0; }
+      #nurjaqia-beranda { padding-top: 30px; }
+      .nurjaqia-hero-copy h1 { font-size: 2.7rem; }
+      .nurjaqia-hero-photo img { height: 410px; }
+      .nurjaqia-product-grid, .nurjaqia-review-grid { grid-template-columns: 1fr; }
+      .nurjaqia-product-image img { height: 390px; }
+      .nurjaqia-gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 210px 150px; gap: 9px; }
+      .nurjaqia-about-image img { height: 330px; }
+      .nurjaqia-contact-copy h2 { font-size: 2rem; }
+      .nurjaqia-footer-inner { flex-direction: column; text-align: center; }
+    }
+  
+
+    /* Tambahan navigasi halaman: satu bagian tampil dalam satu waktu */
+    body.nurjaqia-mode-halaman main > section { display: none; }
+    body.nurjaqia-mode-halaman main > section.nurjaqia-active-page { display: block; }
+  </style>
+</head>
+
+
+<body>
+  <header id="nurjaqia-header">
+    <div class="nurjaqia-container nurjaqia-header-inner">
+      <a class="nurjaqia-brand" href="#nurjaqia-beranda" aria-label="Zayyina Beranda">
+        <img src="https://raw.githubusercontent.com/Nurjaqia/logo/main/logo%20.jpeg" alt="Logo Zayyina">
+        <span>Zayyina Collection</span>
+      </a>
+
+      <input type="checkbox" id="nurjaqia-menu-toggle" aria-label="Buka menu navigasi">
+      <label class="nurjaqia-menu-button" for="nurjaqia-menu-toggle"><i class="fa-solid fa-bars"></i></label>
+
+      <nav class="nurjaqia-nav" aria-label="Navigasi utama">
+        <a href="#nurjaqia-beranda">Beranda</a>
+        <a href="#nurjaqia-tentang">Tentang</a>
+        <a href="#nurjaqia-produk">Produk</a>
+        <a href="#nurjaqia-promo">Promo</a>
+        <a href="#nurjaqia-galeri">Galeri</a>
+        <a href="#nurjaqia-ulasan">Ulasan</a>
+        <a href="#nurjaqia-kontak">Kontak</a>
+      </nav>
+
+      <a class="nurjaqia-header-cta" href="#nurjaqia-produk"><i class="fa-solid fa-bag-shopping"></i> Belanja</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="nurjaqia-beranda">
+      <div class="nurjaqia-container nurjaqia-hero-grid">
+        <div class="nurjaqia-hero-copy">
+          <span class="nurjaqia-eyebrow">Modest Fashion Collection</span>
+          <h1>Beauty in <span>Modesty.</span></h1>
+          <p>
+            Temukan koleksi hijab dan outfit pilihan dari Zayyina. Hadir dengan warna
+            yang lembut, gaya yang sederhana, dan kenyamanan untuk menemani setiap aktivitasmu.
+          </p>
+          <div class="nurjaqia-hero-actions">
+            <a class="nurjaqia-button" href="#nurjaqia-produk">Jelajahi Koleksi <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="nurjaqia-button nurjaqia-button-outline" href="#nurjaqia-tentang">Kenali Zayyina</a>
+          </div>
+        </div>
+        <div class="nurjaqia-hero-photo">
+          <img src="https://raw.githubusercontent.com/Nurjaqia/beranda/main/viscose.jpeg" alt="Model mengenakan koleksi hijab Zayyina">
+          <div class="nurjaqia-hero-note">Simple, Elegant, For You.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="nurjaqia-values" aria-label="Keunggulan Zayyina">
+      <div class="nurjaqia-container nurjaqia-values-grid">
+        <div class="nurjaqia-value"><i class="fa-solid fa-heart"></i><div><strong>Nyaman Dipakai</strong><span>Temani aktivitas setiap hari</span></div></div>
+        <div class="nurjaqia-value"><i class="fa-solid fa-leaf"></i><div><strong>Warna Pilihan</strong><span>Nuansa lembut dan mudah dipadukan</span></div></div>
+        <div class="nurjaqia-value"><i class="fa-solid fa-star"></i><div><strong>Simple & Anggun</strong><span>Tampil percaya diri dengan sederhana</span></div></div>
+      </div>
+    </section>
+    
+    <section id="nurjaqia-tentang" class="nurjaqia-section">
+      <div class="nurjaqia-container nurjaqia-about-grid">
+        <div class="nurjaqia-about-image">
+            <img src="https://raw.githubusercontent.com/Nurjaqia/tentang/main/cantik.jpeg" alt="Inspirasi outfit Zayyina satu">
+        </div>
+        <div class="nurjaqia-about-copy">
+          <span class="nurjaqia-eyebrow">Tentang Zayyina</span>
+          <h2>Anggun dalam kesederhanaan, <span>nyaman dalam setiap gaya.</span></h2>
+          <p>Zayyina hadir untuk menemani perempuan yang ingin tampil sederhana, rapi, dan tetap menawan dalam balutan modest fashion.</p>
+          <p>Melalui pilihan hijab dan outfit bernuansa elegan, kami percaya bahwa setiap perempuan dapat mengekspresikan keindahannya dengan caranya sendiri.</p>
+          <a class="nurjaqia-button" href="#nurjaqia-produk">Lihat Koleksi</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="nurjaqia-produk" class="nurjaqia-section">
+      <div class="nurjaqia-container">
+        <div class="nurjaqia-section-heading">
+          <span class="nurjaqia-eyebrow">Pilihan untukmu</span>
+          <h2>Koleksi Zayyina</h2>
+          <p>Temukan item favorit untuk melengkapi penampilan sehari-hari.</p>
+        </div>
+        <div class="nurjaqia-product-grid">
+          <article class="nurjaqia-product-card">
+            <div class="nurjaqia-product-image">
+              <img src="https://raw.githubusercontent.com/Nurjaqia/produk1/main/pk.jpeg" alt="Pilihan warna pashmina Zayyina">
+              <span class="nurjaqia-product-tag">New Trend </span>
+            </div>
+            <div class="nurjaqia-product-info">
+              <h3>Pashmina Collection</h3>
+              <p>Bahan lembut yang mudah dibentuk dan jatuh.</p>
+              <div class="nurjaqia-product-bottom"><span>Elegan &amp; mudah diatur</span><a class="nurjaqia-small-link" href="#nurjaqia-kontak">Pesan <i class="fa-solid fa-arrow-right"></i></a></div>
+            </div>
+          </article>
+
+          <article class="nurjaqia-product-card">
+            <div class="nurjaqia-product-image">
+              <img src="https://raw.githubusercontent.com/Nurjaqia/produk2/main/ciput.jpeg" alt="Koleksi ciput dengan pilihan warna">
+              <span class="nurjaqia-product-tag">Everyday Essential</span>
+            </div>
+            <div class="nurjaqia-product-info">
+              <h3>Ciput Collection</h3>
+              <p>Inner hijab berbahan lembut yang pas di kepala dan tidak bikin pusing. </p>
+              <div class="nurjaqia-product-bottom"><span>Adem &amp; anti-geser</span><a class="nurjaqia-small-link" href="#nurjaqia-kontak">Pesan <i class="fa-solid fa-arrow-right"></i></a></div>
+            </div>
+          </article>
+
+          <article class="nurjaqia-product-card">
+            <div class="nurjaqia-product-image">
+              <img src="https://raw.githubusercontent.com/Nurjaqia/produk3/main/paris.jpeg" alt="Inspirasi blouse modest Zayyina">
+              <span class="nurjaqia-product-tag">Best Seller</span>
+            </div>
+            <div class="nurjaqia-product-info">
+              <h3>Paris Collection</h3>
+              <p>Favorit para hijabers untuk look yang rapi dan simple.</p>
+              <div class="nurjaqia-product-bottom"><span>Tegak &amp; ringan seharian</span><a class="nurjaqia-small-link" href="#nurjaqia-kontak">Pesan <i class="fa-solid fa-arrow-right"></i></a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="nurjaqia-promo" class="nurjaqia-section">
+      <div class="nurjaqia-container nurjaqia-promo-box">
+        <div>
+          <span class="nurjaqia-eyebrow">Limited Time Offer</span>
+          <h2>Tampil Anggun Lebih Hemat dengan Promo Spesial Kami.</h2>
+          <p>Dapatkan penawaran harga terbaik minggu ini. Pilih gaya modest impianmu dan nikmati diskon spesialnya sekarang!</p>
+          </div>
+        <a class="nurjaqia-button" href="#nurjaqia-kontak">Tanya Produk <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </section>
+
+    <section id="nurjaqia-galeri" class="nurjaqia-section">
+      <div class="nurjaqia-container">
+        <div class="nurjaqia-section-heading">
+          <span class="nurjaqia-eyebrow">Zayyina Moments</span>
+          <h2>Inspirasi Gaya</h2>
+          <p>Beberapa inspirasi padu padan untuk gaya modest yang effortless.</p>
+        </div>
+        <div class="nurjaqia-gallery-grid">
+          <img src="https://raw.githubusercontent.com/Nurjaqia/galeri1/main/ul1.jpeg" alt="Ulasan 1">
+          <img src="https://raw.githubusercontent.com/Nurjaqia/galeri2/main/ul2.jpeg" alt="Pilihan warna pashmina Zayyina">
+          <img src="https://raw.githubusercontent.com/Nurjaqia/galeri3/main/ul3.jpeg" alt="Pilihan warna ciput Zayyina">
+          <img src="https://raw.githubusercontent.com/Nurjaqia/galeri4/main/qi.jpeg" alt="Beauty in Modesty">
+        </div>
+      </div>
+    </section>
+
+    <section id="nurjaqia-ulasan" class="nurjaqia-section">
+      <div class="nurjaqia-container">
+        <div class="nurjaqia-section-heading">
+          <span class="nurjaqia-eyebrow">Kata Mereka</span>
+          <h2>Love from Our Customers</h2>
+          <p>Tampilan ulasan pelanggan </p>
+        </div>
+        <div class="nurjaqia-review-grid">
+          <article class="nurjaqia-review-card"><div class="nurjaqia-stars">★★★★★</div><p>“Warnanya cantik dan gampang dipadukan dengan outfit sehari-hari.”</p><strong>— Nurjaqia Batam</strong></article>
+          <article class="nurjaqia-review-card"><div class="nurjaqia-stars">★★★★★</div><p>“Suka dengan pilihan warna soft-nya. Simpel tapi tetap kelihatan elegan.”</p><strong>— Halwa Bandung</strong></article>
+          <article class="nurjaqia-review-card"><div class="nurjaqia-stars">★★★★★</div><p>“Koleksinya cocok untuk yang suka gaya modest dan minimalis.”</p><strong>— Wafa Tasikmalaya</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="nurjaqia-kontak" class="nurjaqia-section">
+      <div class="nurjaqia-container nurjaqia-contact-grid">
+        <div class="nurjaqia-contact-copy">
+          <span class="nurjaqia-eyebrow">Get in Touch</span>
+          <h2>Yuk, temukan koleksi favoritmu.</h2>
+          <p>Hubungi Zayyina untuk bertanya tentang pilihan warna, produk, dan pemesanan.</p>
+          <div class="nurjaqia-contact-detail"><i class="fa-brands fa-instagram"></i><span>zayyinacollection</span></div>
+          <div class="nurjaqia-contact-detail"><i class="fa-solid fa-envelope"></i><span>zayyinahijabcollection@gmail.com</span></div>
+        </div>
+        <form class="nurjaqia-contact-form" onsubmit="event.preventDefault(); alert('Terima kasih! Formulir ini terhubung ke layanan pengiriman pesan.');">
+          <input type="text" name="nama" placeholder="Nama kamu" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="pesan" placeholder="Tulis pesan atau produk yang ingin ditanyakan..." required></textarea>
+          <button class="nurjaqia-button" type="submit">Kirim Pesan <i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer id="nurjaqia-footer">
+    <div class="nurjaqia-container nurjaqia-footer-inner">
+      <div>
+        <div class="nurjaqia-footer-brand">Zayyina</div>
+        <p>Beauty in Modesty · © 2026 </p>
+      </div>
+      <div class="nurjaqia-socials">
+        <a href="https://www.instagram.com/zayyinacollection_?jplx=bnZqYmYxMHlwcDU1" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://vt.tiktok.com/ZS9fEmxmSXWLK-dnO9B/" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="mailto:zayyinahijabcollection@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Tambahan navigasi halaman; kode dan konten asli tetap dipertahankan -->
+  <script>
+    (function () {
+      const halaman = Array.from(document.querySelectorAll('main > section[id]'));
+      if (!halaman.length) return;
+
+      document.body.classList.add('nurjaqia-mode-halaman');
+
+      function bukaHalamanZayyina(id, ubahRiwayat) {
+        const tujuan = halaman.find(function (bagian) { return bagian.id === id; });
+        if (!tujuan) return;
+
+        halaman.forEach(function (bagian) {
+          bagian.classList.toggle('nurjaqia-active-page', bagian === tujuan);
+          bagian.setAttribute('aria-hidden', bagian === tujuan ? 'false' : 'true');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(function (tautan) {
+          if (tautan.getAttribute('href') === '#' + id) {
+            tautan.setAttribute('aria-current', 'page');
+          } else {
+            tautan.removeAttribute('aria-current');
+          }
+        });
+
+        if (ubahRiwayat) {
+          history.pushState({ halamanZayyina: id }, '', '#' + id);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        const menu = document.getElementById('nurjaqia-menu-toggle');
+        if (menu) menu.checked = false;
+      }
+
+      document.addEventListener('click', function (event) {
+        const tautan = event.target.closest('a[href^="#"]');
+        if (!tautan) return;
+        const id = decodeURIComponent(tautan.getAttribute('href').slice(1));
+        if (!halaman.some(function (bagian) { return bagian.id === id; })) return;
+        event.preventDefault();
+        bukaHalamanZayyina(id, true);
+      });
+
+      window.addEventListener('popstate', function () {
+        const id = decodeURIComponent(window.location.hash.slice(1));
+        bukaHalamanZayyina(id || halaman[0].id, false);
+      });
+
+      const awal = decodeURIComponent(window.location.hash.slice(1));
+      bukaHalamanZayyina(halaman.some(function (bagian) { return bagian.id === awal; }) ? awal : halaman[0].id, false);
+    })();
+  </script>
+
+</body>
+</html>
